@@ -7,8 +7,9 @@ import configparser
 config = configparser.ConfigParser()
 try:
     config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.ini'))
-except:
-    print("Configuration file not found.")
+except Exception as e:
+    print("Error: Could not read config.ini")
+    print(e)
     exit()
 
 # Retrieving the path to start working on using -p/--path options when launching the script
